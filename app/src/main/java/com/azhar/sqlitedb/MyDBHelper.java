@@ -17,7 +17,12 @@ public class MyDBHelper extends SQLiteOpenHelper {
     public static final String NAME = "name";
     public static final String AGE = "age";
     public static final String GENDER = "gender";
-    public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+"("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+NAME+" VARCHAR(255), "+AGE+" INTEGER, "+GENDER+" VARCHER(20)) ";
+    public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+"("
+            +ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
+            +NAME+" VARCHAR(255), "
+            +AGE+" INTEGER, "
+            +GENDER+" VARCHER(20)) ";
+
     private final Context context;
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE_NAME;
     public static final String RETRIEVE_ALL = "SELECT * FROM "+TABLE_NAME;
@@ -35,7 +40,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         try {
             Toast.makeText(context, "Database Created", Toast.LENGTH_LONG).show();
             db.execSQL(CREATE_TABLE);
-            Log.d("db", "Database Created");
+
         }catch (Exception e){
             Toast.makeText(context, "Exception: "+e, Toast.LENGTH_LONG).show();
         }
